@@ -11,22 +11,21 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os,sys
 from pathlib import Path
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.append('/Users/kostya/PycharmProjects/tgbot_template')
+#sys.path.append('/Users/kostya/PycharmProjects/tgbot_template')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-load_dotenv()
+load_dotenv('../../../.env')
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']#[str(os.getenv('IP'))]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -80,13 +79,15 @@ WSGI_APPLICATION = 'django_project.telegrambot.telegrambot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('PGUSER'),
-        'PASSWORD': os.getenv('PG_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': 5432,
+        'NAME': str(os.getenv('DB_NAME')),
+        'USER': str(os.getenv('PGUSER')),
+        'PASSWORD': str(os.getenv('PGPASSWORD')),
+        'HOST': str(os.getenv('DBHOST')),
+        'PORT': str(os.getenv('PORT')),
     }
 }
+
+
 
 
 

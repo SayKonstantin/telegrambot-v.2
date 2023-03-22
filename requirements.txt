@@ -13,7 +13,7 @@ idna==3.4
 magic-filter==1.0.9
 multidict==6.0.4
 Pillow==9.4.0
-psycopg2==2.9.5
+psycopg2-binary
 python-dotenv==1.0.0
 pytz==2022.7.1
 requests==2.28.2
